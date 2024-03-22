@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="styles/style.css" type="text/css">
+	<title>Лабораторна 2</title>
+</head>
+<body>
+	<div class="temp m1">...</div>
+	<button onclick="f1()">f1</button>
+	<button onclick="f2()">f2</button>
+
+	<button onclick="f3()">f3</button>
+	<button onclick="f4()">f4</button>
+
+	<script>
+		function f1()
+		{
+			var sum = 0.1 + 0.2;
+			var result = document.getElementsByClassName("m1")[0];
+			result.innerHTML = "В JS" + "<br>" + " 0.1 + 0.2 = " + sum;
+			result.style.color = '#2d264a';
+		}
+		function f2(){
+			document.write(9+10);
+		}
+		function f3()
+		{
+			window.alert("Важлива інформація!");
+		}
+		function f4()
+		{
+			console.log(20+17);
+		}
+	</script>
+</body>
+</html>

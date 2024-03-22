@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="styles/style.css" type="text/css">
+	<title>Лабораторна 2</title>
+</head>
+<body>
+	<img src="images/l1.jpg" alt="">
+	
+
+	<script>
+		var myImage = document.querySelector('img');
+
+		function ChangeGreen() {
+			myImage.setAttribute ('src', 'images/l3.jpg');
+			setTimeout(ChangeRed, 3000)
+		}
+
+		function ChangeYellow(){
+			myImage.setAttribute('src', 'images/l2.jpg')
+			setTimeout(ChangeGreen, 1000)
+		}
+
+		function ChangeRed() {
+			myImage.setAttribute ('src', 'images/l1.jpg');
+			setTimeout(ChangeYellow, 3000)
+		}
+
+		ChangeRed()
+	</script>
+</body>
+</html>
