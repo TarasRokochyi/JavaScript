@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+
+            function checkAngle(el){
+                if (el.value === ""){
+                    alert("angle should be bigger than 0 and smaller than 90 degrees")
+                    el.focus()
+                    el.select()
+                    return false
+                }
+
+                let val = parseInt(el.value)
+                console.log(val)
+                if(val < 0 || val > 90){
+                    alert("angle should be bigger than 0 and smaller than 90 degrees")
+                    el.focus()
+                    el.select()
+                    return false
+                }
+                return true
+            }
+
+            function validateForm(){
+                let angle_input = document.getElementById("degrees")
+                if(!checkAngle(angle_input)){
+                    angle_input.focus()
+                    angle_input.select()
+                    return false
+                }
+
+                let function_input = document.getElementById("function")
+                if(function_input.value === ""){
+                    alert("choose function to evaluate deegrees")
+                    function_input.focus()
+                    function_input.select()
+                    return false
+                }
+
+                evaluate(function_input.value, angle_input.value)
+            }
+
+            function evaluate(func, degr){
+                let result = document.getElementById("result")
+
+                if(func == "sin")
+                    result.innerHTML = func+"("+degr+")=" + Math.sin(parseInt(degr))
+
+                else if(func == "cos")
+                    result.innerHTML = func+"("+degr+")=" + Math.cos(parseInt(degr))
+
+                else if(func == "tan")
+                    result.innerHTML = func+"("+degr+")=" + Math.tan(parseInt(degr))
+            }
+
+        </script>
+
+        <h1>Trigonometry functions</h1>
+        <p>The angle must be between 0 and 90 degrees</p>
+        <label for="degrees">angle in degrees:</label>
+        <input type="text" id="degrees" name="degrees" onchange="checkAngle(this)"><br><br>
+
+        <label for="function"> function:</label>
+        <select id="function" name="function">
+            <option value="">choose function</option>
+            <option value="sin">sin</option>
+            <option value="cos">cos</option>
+            <option value="tan">tan</option>
+        </select><br><br>
+
+        <input type="submit" value="evaluate" onclick="validateForm()">
+
+        <div id="result">
+
+        </div>
+    </body>
+</html>
