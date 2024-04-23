@@ -15,7 +15,7 @@
 
                 let val = parseInt(el.value)
                 console.log(val)
-                if(val < 0 || val > 90){
+                if(val < 0 || val > 90 || isNaN(val)){
                     alert("angle should be bigger than 0 and smaller than 90 degrees")
                     el.focus()
                     el.select()
