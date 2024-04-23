@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>lab10</title>
+    </head>
+    <body>
+        <label for="select">Choose image</label>
+        <select id="select" onchange="change(this)">
+            <option value="">choose image</option>
+            <option value="frodo">frodo</option>
+            <option value="gandalf">gandalf</option>
+            <option value="aragorn">aragorn</option>
+            <option value="hobbit_house">hobbit house</option>
+        </select>
+
+        <br>
+
+        <image id="img" style="width: 400px;"></image>
+
+        <script>
+            var photo = new Array()
+
+            photo["frodo"] = new Image(400, 400)
+            photo["frodo"].src = "frodo.jpg"
+            photo["gandalf"] = new Image(400, 400)
+            photo["gandalf"].src = "gandalf.jpg"
+            photo["aragorn"] = new Image()
+            photo["aragorn"].src = "aragorn.jpg"
+            photo["hobbit_house"] = new Image()
+            photo["hobbit_house"].src = "hobbit_house.jpeg"
+
+            function change(e){
+                let name = e.options[e.selectedIndex].value
+                console.log(name)
+                console.log(photo[name].src)
+                document.getElementById("img").src = photo[name].src
+            }
+        </script>
+    </body>
+</html>
