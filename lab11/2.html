@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перетягування</title>
+    <style>
+        #container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: silver;
+        }
+        #kv {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body >
+<div id="container" style=" width: 500px; height: 500px;">
+    <div id="kv" style="top: 10px; left: 10px; width: 50px; height: 50px;"></div>
+</div>
+
+<script>
+    var flag = false;
+    var offset = {x: 0, y: 0}; // Додамо змінну для зберігання відступів
+    var container = document.getElementById('container');
+    var kv = document.getElementById('kv');
+    var constraint_x = parseInt(container.style.width) - parseInt(kv.style.width);
+    var constraint_y = parseInt(container.style.height) - parseInt(kv.style.height);
+
+        window.onmousemove = drag;
+        kv.onmouseup = release;
+        kv.onmousedown = capture;
+
+    function drag(evt) {
+        var event = evt || window.event;
+        if (flag) {
+            var kv = document.getElementById('kv');
+            let y = (event.clientY - offset.y);
+            let x = (event.clientX - offset.x);
+            if (y < constraint_y && y > 0)
+                kv.style.top = y + 'px'; 
+            if (x < constraint_x && x > 0)
+                kv.style.left = x + 'px'; 
+        }
+    }
+
+    function release() {
+        flag = false;
+    }
+
+    function capture(evt) {
+        flag = true;
+        var kv = document.getElementById('kv');
+        var event = evt || window.event;
+        offset.x = event.clientX - kv.offsetLeft;
+        offset.y = event.clientY - kv.offsetTop; 
+    }
+</script>
+</body>
+</html>
