@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <p>Window width: <span id="width"></span></p>
+        <p>Window height: <span id="height"></span></p>
+
+        <script>
+            function updateWindowSize() {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                document.getElementById("width").textContent = width;
+                document.getElementById("height").textContent = height;
+            }
+
+            updateWindowSize();
+
+            window.addEventListener('resize', updateWindowSize);
+        </script>
+    </body>
+</html>

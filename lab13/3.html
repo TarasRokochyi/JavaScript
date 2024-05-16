@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <button id="btn1" onclick="changeBackgroundColor('blue')">Змінити колір на синій</button>
+        <button id="btn2" ondblclick="changeBackgroundColor('pink')">Змінити колір на рожевий</button>
+        <button id="btn3" onmousedown="changeBackgroundColor('brown')" onmouseup="changeBackgroundColor('white')">Змінити колір на коричневий</button>
+        <a href="#" id="link" onmouseover="changeBackgroundColor('yellow')" onmouseout="changeBackgroundColor('white')">Лінк</a>
+
+        <script>
+
+            function changeBackgroundColor(color) {
+                document.body.style.backgroundColor = color;
+            }
+        </script>
+    </body>
+</html>

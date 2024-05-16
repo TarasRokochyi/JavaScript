@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdowns</title>
+</head>
+<body>
+    <select name="country" id="country" onchange="updateCities()">
+        <option value="ger">Germany</option>
+        <option value="usa">USA</option>
+        <option value="ukr">Ukraine</option>
+    </select>
+
+    <select name="cities" id="cities" onchange="selectCity()"></select>
+
+    <p id="selectedInfo"></p>
+
+    <script>
+        var citiesData = {
+            ger: ["Berlin", "Hamburg", "Munich"],
+            usa: ["New York", "Los Angeles", "Chicago"],
+            ukr: ["Kyiv", "Lviv", "Odesa"]
+        };
+
+        function updateCities() {
+            var countrySelect = document.getElementById("country");
+            var citySelect = document.getElementById("cities");
+            var selectedCountry = countrySelect.value;
+
+            citySelect.innerHTML = "";
+
+            citiesData[selectedCountry].forEach(function(city) {
+                var option = document.createElement("option");
+                option.text = city;
+                option.value = city;
+                citySelect.add(option);
+            });
+
+            selectCity();
+        }
+        
+        function selectCity(){
+            var countrySelect = document.getElementById("country");
+            var citySelect = document.getElementById("cities");
+
+            var selectedCountryName = countrySelect.options[countrySelect.selectedIndex].text;
+            var selectedCity = citySelect.value;
+            document.getElementById("selectedInfo").textContent = "Selected country: " + selectedCountryName + ", Selected city: " + selectedCity;
+        }
+
+        updateCities();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    </head>
+    <body>
+        <button id="myButton" onclick="buttonPressed()" onmouseover="mouseOn()" onmouseout="mouseOff()">Press Me</button>
+        <div id="message"></div>
+
+        <script>
+            function buttonPressed() {
+                let message = document.createElement("div")
+                message.innerHTML = "I was pressed!"
+                document.body.appendChild(message);
+            }
+
+            function mouseOn() {
+                let message = document.createElement("div")
+                message.innerHTML = "Mouse on me!"
+                document.body.appendChild(message);
+            }
+
+            function mouseOff() {
+                let message = document.createElement("div")
+                message.innerHTML = "Mouse is not on me!"
+                document.body.appendChild(message);
+            }
+        </script>
+    </body>
+</html>
